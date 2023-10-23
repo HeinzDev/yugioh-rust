@@ -1,0 +1,30 @@
+Blue-Eyes White Dragon,Monster,3000
+Dark Magician,Monster,2500
+Red-Eyes Black Dragon,Monster,2400
+Exodia the Forbidden One,Monster,1000
+Pot of Greed,Magic
+Mirror Force,Magic
+Raigeki,Magic
+Dark Hole,Magic
+Change of Heart,Magic
+Monster Reborn,Magic
+Slifer the Sky Dragon,Monster,2000
+Obelisk the Tormentor,Monster,4000
+The Winged Dragon of Ra,Monster,0
+Exodia's Head,Monster,1000
+Exodia's Left Leg,Monster,200
+Exodia's Right Leg,Monster,200
+Exodia's Left Arm,Monster,200
+Exodia's Right Arm,Monster,200
+Summoned Skull,Monster,2500
+Blue-Eyes Toon Dragon,Monster,3000
+Dark Magician Girl,Monster,2000
+Black Luster Soldier - Envoy of the Beginning,Monster,3000
+Mystical Elf,Monster,800
+Beaver Warrior,Monster,1200
+Curse of Dragon,Monster,2000
+Winged Dragon, Guardian of the Fortress #1,Monster,1400
+Flame Swordsman,Monster,1800
+Skull Servant,Monster,300
+Judge Man,Monster,2200
+Sangan,Monster,1000
