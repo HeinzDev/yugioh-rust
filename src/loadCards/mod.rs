@@ -12,7 +12,6 @@ pub fn load_cards(filename: &str) -> Vec<Card> {
 
             for line in reader.lines() {
                 if let Ok(card_data) = line {
-                    println!("Linha lida: {}", card_data);
                     let parts: Vec<&str> = card_data.split(',').collect();
                     if parts.len() >= 2 {
                         let name = parts[0].to_string();
@@ -33,7 +32,6 @@ pub fn load_cards(filename: &str) -> Vec<Card> {
                         };
                         let card = Card::new(name, card_type, None);
                         cards.push(card.clone());
-                        //println!("Carta adicionada: {:?}", card);
                     }
                 }
             }
@@ -41,12 +39,10 @@ pub fn load_cards(filename: &str) -> Vec<Card> {
         Err(e) => println!("Erro ao abrir o arquivo: {}", e),
     }
 
-    //println!("Número de cartas carregadas: {}", cards.len());
-
     cards
 }
 
-pub fn display_deck(deck: &Vec<Card>) {
+pub fn hand_details(deck: &Vec<Card>) {
     for (index, card) in deck.iter().enumerate() {
         match &card.card_type {
             CardType::Magic => {
@@ -68,6 +64,29 @@ pub fn display_deck(deck: &Vec<Card>) {
                 }
             }
         }
+    }
+}
+
+pub fn card_details(hand: &Vec<Card>, index: usize) {
+    if let Some(card) = hand.get(index) {
+        println!("{:?}", card.card_type);
+        match &card.card_type {
+            CardType::Magic => {
+                println!("Name: {}, Type: Magic", card.name);
+            }
+            CardType::Monster(atk) => {
+                match atk {
+                    Some(value) => {
+                        println!("Name: {}, Type: Monster, Attack: {}", card.name, value);
+                    }
+                    None => {
+                        println!("Name: {}, Type: Monster, Attack: None", card.name);
+                    }
+                }
+            }
+        }
+    } else {
+        println!("Card not found at index {}", index);
     }
 }
 

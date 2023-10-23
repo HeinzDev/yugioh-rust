@@ -55,8 +55,6 @@ pub fn attack(bot_hp: i32) -> i32 {
     if input.is_empty() {
         return bot_hp;
     }
-
-    println!("input: {}", input);
     return bot_hp - to_int(&input);
 }
 

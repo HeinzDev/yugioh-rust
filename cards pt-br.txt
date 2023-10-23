@@ -1,30 +1,30 @@
-Dragão Branco de Olhos Azuis,Monstro,3000
-Mago Negro,Monstro,2500
-Dragão Negro de Olhos Vermelhos,Monstro,2400
-Exodia, o Proibido,Monstro,1000
-Pote da Ganância,Mágica
-Força de Espelho,Mágica
-Raigeki,Mágica
-Buraco Negro,Mágica
-Mudança de Coração,Mágica
-Renascimento de Monstros,Mágica
-Slifer, o Dragão Celeste,Monstro,2000
-Obelisco, o Atormentador,Monstro,4000
-Dragão Alado de Rá,Monstro,0
-Cabeça de Exodia,Monstro,1000
-Perna Esquerda de Exodia,Monstro,200
-Perna Direita de Exodia,Monstro,200
-Braço Esquerdo de Exodia,Monstro,200
-Braço Direito de Exodia,Monstro,200
-Caveira Servente,Monstro,300
-Dragão Toon de Olhos Azuis,Monstro,3000
-Garota do Mago Negro,Monstro,2000
-Soldado do Lustro Negro - Mensageiro do Começo,Monstro,3000
-Elfa Mística,Monstro,800
-Guerreiro Castor,Monstro,1200
-Maldição do Dragão,Monstro,2000
-Dragão Alado, Guardião da Fortaleza #1,Monstro,1400
-Espadachim das Chamas,Monstro,1800
-Servente Caveira,Monstro,300
-Homem Juiz,Monstro,2200
-Sangan,Monstro,1000
+Dragão Branco de Olhos Azuis,Monster,3000
+Mago Negro,Monster,2500
+Dragão Negro de Olhos Vermelhos,Monster,2400
+Exodiao Proibido,Monster,1000
+Pote da Ganância,Magic
+Força de Espelho,Magic
+Raigeki,Magic
+Buraco Negro,Magic
+Mudança de Coração,Magic
+Renascimento de Monsters,Magic
+Slifer o Dragão Celeste,Monster,2000
+Obelisco o Atormentador,Monster,4000
+Dragão Alado de Rá,Monster,0
+Cabeça de Exodia,Monster,1000
+Perna Esquerda de Exodia,Monster,200
+Perna Direita de Exodia,Monster,200
+Braço Esquerdo de Exodia,Monster,200
+Braço Direito de Exodia,Monster,200
+Caveira Servente,Monster,300
+Dragão Toon de Olhos Azuis,Monster,3000
+Garota do Mago Negro,Monster,2000
+Soldado do Lustro Negro - Mensageiro do Começo,Monster,3000
+Elfa Mística,Monster,800
+Guerreiro Castor,Monster,1200
+Maldição do Dragão,Monster,2000
+Dragão Alado Guardião da Fortaleza #1,Monster,1400
+Espadachim das Chamas,Monster,1800
+Servente Caveira,Monster,300
+Homem Juiz,Monster,2200
+Sangan,Monster,1000
