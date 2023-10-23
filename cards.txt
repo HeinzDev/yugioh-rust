@@ -1,30 +1,30 @@
-Blue-Eyes White Dragon,Monster,3000
-Dark Magician,Monster,2500
-Red-Eyes Black Dragon,Monster,2400
-Exodia the Forbidden One,Monster,1000
-Pot of Greed,Magic
-Mirror Force,Magic
-Raigeki,Magic
-Dark Hole,Magic
-Change of Heart,Magic
-Monster Reborn,Magic
-Slifer the Sky Dragon,Monster,2000
-Obelisk the Tormentor,Monster,4000
-The Winged Dragon of Ra,Monster,0
-Exodia's Head,Monster,1000
-Exodia's Left Leg,Monster,200
-Exodia's Right Leg,Monster,200
-Exodia's Left Arm,Monster,200
-Exodia's Right Arm,Monster,200
-Summoned Skull,Monster,2500
-Blue-Eyes Toon Dragon,Monster,3000
-Dark Magician Girl,Monster,2000
-Black Luster Soldier - Envoy of the Beginning,Monster,3000
-Mystical Elf,Monster,800
-Beaver Warrior,Monster,1200
-Curse of Dragon,Monster,2000
-Winged Dragon, Guardian of the Fortress #1,Monster,1400
-Flame Swordsman,Monster,1800
-Skull Servant,Monster,300
-Judge Man,Monster,2200
-Sangan,Monster,1000
+Blue-Eyes White Dragon,Monster,3000,A mighty dragon that reigns over the skies.
+Dark Magician,Monster,2500,A wizard master of dark arts.
+Red-Eyes Black Dragon,Monster,2400,A malevolent dragon that engulfs its enemies in flames.
+Exodia the Forbidden One,Monster,1000,The forbidden protector of ancient realms.
+Pot of Greed,Magic,A mystical pot that grants the user riches, but at a cost.
+Mirror Force,Magic,A powerful trap that reflects an opponent's attack.
+Raigeki,Magic,A spell that summons a powerful lightning bolt to annihilate all of the opponent's monsters.
+Black Hole,Magic,A black vortex that swallows all cards on the field.
+Change of Heart,Magic,A spell that allows the user to control an opponent's monster.
+Monster Reborn,Magic,An ancient ritual that resurrects fallen monsters.
+Slifer the Sky Dragon,Monster,2000,The mighty sky dragon with divine abilities.
+Obelisk the Tormentor,Monster,4000,The relentless titan that obliterates everything in its path.
+Winged Dragon of Ra,Monster,0,A winged deity with the power of immortality.
+Exodia's Head,Monster,1000,Part of the mythical entity known as Exodia.
+Exodia's Left Leg,Monster,200,One of the parts of the legendary being, Exodia.
+Exodia's Right Leg,Monster,200,One of the parts of the legendary being, Exodia.
+Exodia's Left Arm,Monster,200,One of the parts of the legendary being, Exodia.
+Exodia's Right Arm,Monster,200,One of the parts of the legendary being, Exodia.
+Skull Servant,Monster,300,A sinister servant that follows its master's commands.
+Blue-Eyes Toon Dragon,Monster,3000,A comical version of the mighty Blue-Eyes White Dragon.
+Dark Magician Girl,Monster,2000,A skilled mage who masters mystical arts.
+Black Luster Soldier - Envoy of the Beginning,Monster,3000,A dark warrior with unwavering loyalty.
+Mystical Elf,Monster,800,A mystical elf who manipulates the power of nature.
+Beaver Warrior,Monster,1200,A fierce warrior with the heart of a beaver.
+Curse of Dragon,Monster,2000,A powerful curse that consumes all who dare to challenge it.
+Winged Guardian of the Fortress #1,Monster,1400,A fierce guardian that protects its domain with sharp claws.
+Flame Swordsman,Monster,1800,An agile swordsman whose blades are always ablaze.
+Skull Servant,Monster,300,A loyal servant whose loyalty never wavers.
+Judge Man,Monster,2200,A merciless judge who decides the fate of duels.
+Sangan,Monster,1000,A mischievous little demon with bright red glowing eyes.

@@ -1,30 +1,30 @@
-Dragão Branco de Olhos Azuis,Monster,3000
-Mago Negro,Monster,2500
-Dragão Negro de Olhos Vermelhos,Monster,2400
-Exodiao Proibido,Monster,1000
-Pote da Ganância,Magic
-Força de Espelho,Magic
-Raigeki,Magic
-Buraco Negro,Magic
-Mudança de Coração,Magic
-Renascimento de Monsters,Magic
-Slifer o Dragão Celeste,Monster,2000
-Obelisco o Atormentador,Monster,4000
-Dragão Alado de Rá,Monster,0
-Cabeça de Exodia,Monster,1000
-Perna Esquerda de Exodia,Monster,200
-Perna Direita de Exodia,Monster,200
-Braço Esquerdo de Exodia,Monster,200
-Braço Direito de Exodia,Monster,200
-Caveira Servente,Monster,300
-Dragão Toon de Olhos Azuis,Monster,3000
-Garota do Mago Negro,Monster,2000
-Soldado do Lustro Negro - Mensageiro do Começo,Monster,3000
-Elfa Mística,Monster,800
-Guerreiro Castor,Monster,1200
-Maldição do Dragão,Monster,2000
-Dragão Alado Guardião da Fortaleza #1,Monster,1400
-Espadachim das Chamas,Monster,1800
-Servente Caveira,Monster,300
-Homem Juiz,Monster,2200
-Sangan,Monster,1000
+Dragão Branco de Olhos Azuis,Monster,3000,Um poderoso dragão que reina sobre o céu.
+Mago Negro,Monster,2500,Um feiticeiro mestre das artes das trevas.
+Dragão Negro de Olhos Vermelhos,Monster,2400,Um dragão maléfico que incendeia seus inimigos.
+Exodiao Proibido,Monster,1000,O protetor proibido dos antigos reinos.
+Pote da Ganância,Magic,Um pote místico que concede ao usuário riquezas, mas com um preço.
+Força de Espelho,Magic,Uma poderosa armadilha que reflete o ataque de um oponente.
+Raigeki,Magic,Uma magia que invoca um poderoso raio para aniquilar todos os monstros do oponente.
+Buraco Negro,Magic,Um vórtice negro que engole todas as cartas no campo.
+Mudança de Coração,Magic,Um feitiço que permite ao usuário controlar um monstro inimigo.
+Renascimento de Monsters,Magic,Um ritual antigo que ressuscita monstros caídos.
+Slifer o Dragão Celeste,Monster,2000,O poderoso dragão dos céus com habilidades divinas.
+Obelisco o Atormentador,Monster,4000,O titã implacável que destroi tudo em seu caminho.
+Dragão Alado de Rá,Monster,0,Um deus alado com o poder da imortalidade.
+Cabeça de Exodia,Monster,1000,Parte da entidade mítica conhecida como Exodia.
+Perna Esquerda de Exodia,Monster,200,Uma das partes do ser lendário, Exodia.
+Perna Direita de Exodia,Monster,200,Uma das partes do ser lendário, Exodia.
+Braço Esquerdo de Exodia,Monster,200,Uma das partes do ser lendário, Exodia.
+Braço Direito de Exodia,Monster,200,Uma das partes do ser lendário, Exodia.
+Caveira Servente,Monster,300,Um servo sinistro que segue os comandos de seu mestre.
+Dragão Toon de Olhos Azuis,Monster,3000,Uma versão cômica do poderoso Dragão Branco de Olhos Azuis.
+Garota do Mago Negro,Monster,2000,Uma maga habilidosa que domina as artes místicas.
+Soldado do Lustro Negro - Mensageiro do Começo,Monster,3000,Um guerreiro sombrio cuja lealdade é inabalável.
+Elfa Mística,Monster,800,Uma elfa mística que manipula a energia da natureza.
+Guerreiro Castor,Monster,1200,Um guerreiro feroz com o coração de um castor.
+Maldição do Dragão,Monster,2000,Uma maldição poderosa que consome todos os que ousam desafiá-la.
+Dragão Alado Guardião da Fortaleza #1,Monster,1400,Um guardião feroz que protege seu domínio com garras afiadas.
+Espadachim das Chamas,Monster,1800,Um espadachim ágil cujas lâminas estão sempre em chamas.
+Servente Caveira,Monster,300,Um servo leal cuja lealdade nunca vacila.
+Homem Juiz,Monster,2200,Um juiz impiedoso que decide o destino dos duelos.
+Sangan,Monster,1000,Um demônio pequeno e travesso com olhos vermelhos brilhantes.
