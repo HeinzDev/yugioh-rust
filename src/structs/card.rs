@@ -1,13 +1,13 @@
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub enum CardType {
     Magic,
-    Monster(u8), // O valor dentro do parêntese representa o ataque do monstro
+    Monster(Option<u16>), // O valor dentro do parêntese representa o ataque do monstro
 }
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Card {
-    name: String,
-    card_type: CardType,
-    atk: Option<u16>,
+    pub name: String,
+    pub card_type: CardType,
+    pub atk: Option<u16>,
 }
 
 impl Card {

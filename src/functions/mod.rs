@@ -1,6 +1,6 @@
 use crate::structs::card::Card;
-use rand::seq::SliceRandom;
-
+use rand::Rng;
+//use rand::seq::SliceRandom;
 use std::io;
 
 pub fn dead(i: i32, j: i32) -> bool {
@@ -11,6 +11,40 @@ pub fn to_int(input: &str) -> i32 {
     return input.trim().parse::<i32>().unwrap();
 }
 
+pub fn draw_card(deck: &mut Vec<Card>) -> Option<Card> {
+    if let Some(card) = deck.pop() {
+        Some(card)
+    } else {
+        None
+    }
+}
+
+
+pub fn draw_random_card(deck: &mut Vec<Card>) -> Option<Card> {
+    if deck.is_empty() {
+        return None;
+    }
+
+    let mut rng = rand::thread_rng();
+    let random_index = rng.gen_range(0..deck.len());
+
+    Some(deck.remove(random_index))
+}
+
+
+
+pub fn display_hand(hand: &Vec<Card>) {
+    print!("Mão: [");
+    for (index, card) in hand.iter().enumerate() {
+        if index > 0 {
+            print!(", ");
+        }
+        print!("'{}'", &card.name);
+    }
+    println!("]");
+}
+
+
 pub fn attack(bot_hp: i32) -> i32 {
     let mut input = String::new();
     println!("Digite o seu valor de ataque!");
@@ -19,7 +53,7 @@ pub fn attack(bot_hp: i32) -> i32 {
     let input = input.trim();
 
     if input.is_empty() {
-        return 0;
+        return bot_hp;
     }
 
     println!("input: {}", input);
@@ -31,6 +65,17 @@ pub fn interactive_phase(i: i32) -> bool {
         2 | 3 | 4 => return true,
         _ => return false,
     }
+}
+
+pub fn lifebar(mut life:u16)-> String{
+    let mut lifebar = String::from('[');
+    life = life /1000;
+    let index = life % 10;
+    for _ in 0..index{
+        lifebar.push('=');
+    }
+    lifebar.push(']');
+    return lifebar;
 }
 
 pub fn find_empty_monster_slot(field: &Vec<Option<Card>>) -> Option<usize> {
