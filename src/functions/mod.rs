@@ -34,7 +34,9 @@ pub fn draw_random_card(deck: &mut Vec<Card>) -> Option<Card> {
 
 
 pub fn display_hand(hand: &Vec<Card>) {
-    print!("Mão: [");
+    println!("Hand Cards:"); 
+    println!("");
+    print!("[");
     for (index, card) in hand.iter().enumerate() {
         if index > 0 {
             print!(", ");
@@ -42,12 +44,13 @@ pub fn display_hand(hand: &Vec<Card>) {
         print!("'{}'", &card.name);
     }
     println!("]");
+    println!("");
 }
 
 
 pub fn attack(bot_hp: i32) -> i32 {
     let mut input = String::new();
-    println!("Digite o seu valor de ataque!");
+    println!("write the attack value!");
     io::stdin().read_line(&mut input).ok();
 
     let input = input.trim();
@@ -76,6 +79,28 @@ pub fn lifebar(mut life:u16)-> String{
     return lifebar;
 }
 
+pub fn print_field<T>(monster_field: &[Option<T>], magic_field: &[Option<T>]) {
+    println!("");
+    for i in 0..monster_field.len() {
+        if let Some(_) = &monster_field[i]{
+            print!("[█]");
+        } else {
+            print!("[]");
+        }    
+    }
+    
+    println!("");
+
+    for i in 0..magic_field.len() {
+        if let Some(_) = &magic_field[i]{
+            print!("(█)");
+        } else {
+            print!("()");
+        }    
+    }
+    println!("");
+}
+
 pub fn find_empty_monster_slot(field: &Vec<Option<Card>>) -> Option<usize> {
     for (index, slot) in field.iter().enumerate() {
         if slot.is_none() {
@@ -85,9 +110,36 @@ pub fn find_empty_monster_slot(field: &Vec<Option<Card>>) -> Option<usize> {
     None
 }
 
-pub fn summon_monster(field: &mut Vec<Option<Card>>, card: Card, slot_index: usize) {
-    if let Some(slot) = field.get_mut(slot_index) {
-        *slot = Some(card);
+pub fn summon_monster(hand: &mut Vec<Card>, monster_field: &mut Vec<Option<Card>>) {
+    display_hand(&hand);
+
+    // Solicitar ao usuário que escolha uma carta para invocar
+    println!("Choose a number from 1 - {} to summon a monster from your hand or 0 to cancel):", hand.len());
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Erro ao obter o input");
+
+    let choice = input.trim().parse::<usize>();
+
+    match choice {
+        Ok(index) if index > 0 && index <= hand.len() => {
+            println!("Choose the monster position [1 to 5]");
+            let mut field_position = String::new();
+            io::stdin().read_line(&mut field_position).expect("Error: couldn't get the input");
+
+            let position = field_position.trim().parse::<usize>();
+
+            match position {
+                Ok(pos) if pos > 0 && pos <= monster_field.len() => {
+                    let summoned_monster = hand.remove(index - 1);
+
+                    monster_field[pos - 1] = Some(summoned_monster);
+                    println!("Monster Summoned!");
+                }
+                _ => println!("Invalid positio. Summon canceled."),
+            }
+        }
+        Ok(0) => println!("Summon canceled."),
+        _ => println!("invalid option."),
     }
 }
 

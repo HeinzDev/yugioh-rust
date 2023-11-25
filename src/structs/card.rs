@@ -4,6 +4,7 @@ pub enum CardType {
     Monster(Option<u16>), // O valor dentro do parêntese representa o ataque do monstro
 }
 #[derive(Clone)]
+#[derive(Debug)]
 pub struct Card {
     pub name: String,
     pub card_type: CardType,
