@@ -37,7 +37,7 @@ fn main() {
 
         //populate the hand with 5 cards
         if hand.is_empty() && phase_index == 1 {
-            for _ in 0..5 {
+            for _ in 0..4 {
                 if let Some(drawn_card) = draw_random_card(&mut deck) {
                     hand.push(drawn_card);
                 }
@@ -46,6 +46,13 @@ fn main() {
 
         //display hand
         display_hand(&hand);
+        
+    if phase_index == 1 {
+        if let Some(new_card) = draw_random_card(&mut deck) {
+            hand.push(new_card.clone());  // Use o método clone aqui para criar uma cópia
+            println!("You bought a new card: {}", new_card.name);
+        }
+    }
     
         //main phases
         if phase_index == 2 || phase_index == 4 {
@@ -57,8 +64,10 @@ fn main() {
                 
                 println!("Select an option");
                 println!("1. Normal Summon a monster");
-                println!("2. View the details of your cards");
-                println!("3. View the Field");
+                println!("2. Set an Spell");
+                println!("3. View the details of your cards");
+                println!("4. View the Field");
+                println!("0. Skip Main Phase");
                 main_phase_input = String::from("");
                 io::stdin().read_line(&mut main_phase_input).expect("Error: couldn't get the input");
             
@@ -66,13 +75,21 @@ fn main() {
                 while main_phase_input.trim()=="1" {
                     println!("Your Field:");
                     print_field(&monster_field, &magic_field);
-                    summon_monster(&mut hand, &mut monster_field);
+                    summon_monster(&mut hand, &mut monster_field, &mut magic_field);
                     move_done = true;
                     print_field(&monster_field, &magic_field);
                     break;
                 }
 
                 while main_phase_input.trim()=="2" {
+                    println!("Your Field:");
+                    print_field(&monster_field, &magic_field);
+                    summon_magic(&mut hand, &mut magic_field);
+                    print_field(&monster_field, &magic_field);
+                    break;
+                }
+
+                while main_phase_input.trim()=="3" {
                     println!("Insira o número da carta para ver detalhes:");
                     println!("[Digite nenhuma entrada para sair]");
                     io::stdin().read_line(&mut main_phase_detail_input).unwrap();
@@ -87,10 +104,13 @@ fn main() {
                     }
                 }
 
-                if main_phase_input.trim()=="3" {
+                if main_phase_input.trim()=="4" {
                     println!("Field");
                     print_field(&monster_field, &magic_field);
                     println!("");
+                }
+                if main_phase_input.trim()=="0" {
+                    move_done = true;
                 }
 
                 if move_done {
@@ -103,7 +123,11 @@ fn main() {
 
         
         if phases[phase_index] == "Battle" {
-            battle_phase(&mut hp, &mut bot_hp, &mut monster_field)
+            battle_phase(&mut bot_hp, &mut monster_field, &mut magic_field)
+        }
+        
+        if dead(&hp, &bot_hp) {
+            break;
         }
 
         round += 1;

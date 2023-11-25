@@ -5,8 +5,8 @@ use rand::Rng;
 use std::io;
 
 
-pub fn dead(i: i32, j: i32) -> bool {
-    i <= 0 || j <= 0
+pub fn dead(i: &i32, j: &i32) -> bool {
+    i <= &0 || j <= &0
 }
 
 pub fn to_int(input: &str) -> i32 {
@@ -21,6 +21,15 @@ pub fn draw_card(deck: &mut Vec<Card>) -> Option<Card> {
     }
 }
 
+pub fn buy_phase(deck: &mut Vec<Card>, hand: &mut Vec<Card>) {
+    // Comprar uma nova carta e adicioná-la à mão
+    if let Some(new_card) = draw_random_card(deck) {
+        hand.push(new_card.clone());
+        println!("You bought a new card: {}", new_card.name);
+    } else {
+        println!("No cards left in the deck.");
+    }
+}
 
 pub fn draw_random_card(deck: &mut Vec<Card>) -> Option<Card> {
     if deck.is_empty() {
@@ -32,7 +41,6 @@ pub fn draw_random_card(deck: &mut Vec<Card>) -> Option<Card> {
 
     Some(deck.remove(random_index))
 }
-
 
 
 pub fn display_hand(hand: &Vec<Card>) {
@@ -47,27 +55,6 @@ pub fn display_hand(hand: &Vec<Card>) {
     }
     println!("]");
     println!("");
-}
-
-
-pub fn attack(bot_hp: i32) -> i32 {
-    let mut input = String::new();
-    println!("write the attack value!");
-    io::stdin().read_line(&mut input).ok();
-
-    let input = input.trim();
-
-    if input.is_empty() {
-        return bot_hp;
-    }
-    return bot_hp - to_int(&input);
-}
-
-pub fn interactive_phase(i: i32) -> bool {
-    match i {
-        2 | 3 | 4 => return true,
-        _ => return false,
-    }
 }
 
 pub fn lifebar(mut life:u16)-> String{
@@ -112,11 +99,12 @@ pub fn find_empty_monster_slot(field: &Vec<Option<Card>>) -> Option<usize> {
     None
 }
 
-pub fn summon_monster(hand: &mut Vec<Card>, monster_field: &mut Vec<Option<Card>>) {
+
+pub fn summon_monster(hand: &mut Vec<Card>, monster_field: &mut Vec<Option<Card>>, magic_field: &mut Vec<Option<Card>>) {
     display_hand(&hand);
 
-    // Solicitar ao usuário que escolha uma carta para invocar
-    println!("Choose a number from 1 - {} to summon a monster from your hand or 0 to cancel):", hand.len());
+    // Solicitar ao usuário que escolha uma carta de monstro para invocar
+    println!("Choose a number from 1 - {} to summon a monster from your hand or 0 to cancel:", hand.len());
     let mut input = String::new();
     io::stdin().read_line(&mut input).expect("Erro ao obter o input");
 
@@ -124,27 +112,32 @@ pub fn summon_monster(hand: &mut Vec<Card>, monster_field: &mut Vec<Option<Card>
 
     match choice {
         Ok(index) if index > 0 && index <= hand.len() => {
-            println!("Choose the monster position [1 to 5]");
-            let mut field_position = String::new();
-            io::stdin().read_line(&mut field_position).expect("Error: couldn't get the input");
+            let selected_monster = &hand[index - 1];
 
-            let position = field_position.trim().parse::<usize>();
+            if let CardType::Monster(_) = selected_monster.card_type {
+                println!("Choose the monster position [1 to 5]");
+                let mut field_position = String::new();
+                io::stdin().read_line(&mut field_position).expect("Error: couldn't get the input");
 
-            match position {
-                Ok(pos) if pos > 0 && pos <= monster_field.len() => {
-                    let summoned_monster = hand.remove(index - 1);
+                let position = field_position.trim().parse::<usize>();
 
-                    monster_field[pos - 1] = Some(summoned_monster);
-                    println!("Monster Summoned!");
+                match position {
+                    Ok(pos) if pos > 0 && pos <= monster_field.len() => {
+                        let summoned_monster = hand.remove(index - 1);
+
+                        monster_field[pos - 1] = Some(summoned_monster);
+                        println!("Monster Summoned!");
+                    }
+                    _ => println!("Invalid position. Summon canceled."),
                 }
-                _ => println!("Invalid positio. Summon canceled."),
+            } else {
+                println!("Invalid choice. You can only summon Monster cards to the Monster field.");
             }
         }
         Ok(0) => println!("Summon canceled."),
-        _ => println!("invalid option."),
+        _ => println!("Invalid option."),
     }
 }
-
 
 pub fn kill_monster(field: &mut Vec<Option<Card>>, slot_index: usize) -> Option<Card> {
     if let Some(slot) = field.get_mut(slot_index) {
@@ -156,11 +149,51 @@ pub fn kill_monster(field: &mut Vec<Option<Card>>, slot_index: usize) -> Option<
 
 
 
-pub fn battle_phase(player_hp: &mut i32, bot_hp: &mut i32, monster_field: &mut Vec<Option<Card>>) {
-    println!("Your Field:");
-    print_field(monster_field, &vec![]); // Ainda não estamos considerando as cartas de magia
+pub fn summon_magic(hand: &mut Vec<Card>, magic_field: &mut Vec<Option<Card>>) {
+    display_hand(&hand);
 
-    println!("Select a monster to attack (1 to 5) or 0 to cancel:");
+    // Solicitar ao usuário que escolha uma carta de magia para invocar
+    println!("Choose a number from 1 - {} to summon a magic card from your hand or 0 to cancel:", hand.len());
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Error: couldn't get the input");
+
+    let choice = input.trim().parse::<usize>();
+
+    match choice {
+        Ok(index) if index > 0 && index <= hand.len() => {
+            let selected_magic = &hand[index - 1];
+
+            if let CardType::Magic = selected_magic.card_type {
+                println!("Choose the magic position [1 to 5]");
+                let mut field_position = String::new();
+                io::stdin().read_line(&mut field_position).expect("Error: couldn't get the input");
+
+                let position = field_position.trim().parse::<usize>();
+
+                match position {
+                    Ok(pos) if pos > 0 && pos <= magic_field.len() => {
+                        let summoned_magic = hand.remove(index - 1);
+
+                        magic_field[pos - 1] = Some(summoned_magic);
+                        println!("Magic Card Summoned!");
+                    }
+                    _ => println!("Invalid position. Summon canceled."),
+                }
+            } else {
+                println!("Invalid choice. You can only summon Magic cards to the Magic field.");
+            }
+        }
+        Ok(0) => println!("Summon canceled."),
+        _ => println!("Invalid option."),
+    }
+}
+
+
+pub fn battle_phase(bot_hp: &mut i32, monster_field: &mut Vec<Option<Card>>, magic_field: &mut Vec<Option<Card>>) {
+    println!("Your Field:");
+    print_field(monster_field, magic_field);
+
+    println!("Select a monster position to attack (1 to 5) or 0 to cancel:");
     let mut input = String::new();
     io::stdin().read_line(&mut input).expect("Error: couldn't get the input");
 
@@ -188,5 +221,3 @@ pub fn battle_phase(player_hp: &mut i32, bot_hp: &mut i32, monster_field: &mut V
         _ => println!("Invalid option."),
     }
 }
-
-// ...
