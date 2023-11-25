@@ -103,10 +103,7 @@ fn main() {
 
         
         if phases[phase_index] == "Battle" {
-            bot_hp = attack(bot_hp);
-            if dead(10, bot_hp) {
-                break;
-            }
+            battle_phase(&mut hp, &mut bot_hp, &mut monster_field)
         }
 
         round += 1;

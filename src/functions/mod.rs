@@ -1,7 +1,9 @@
 use crate::structs::card::Card;
+use crate::structs::card::CardType;
 use rand::Rng;
 //use rand::seq::SliceRandom;
 use std::io;
+
 
 pub fn dead(i: i32, j: i32) -> bool {
     i <= 0 || j <= 0
@@ -143,6 +145,7 @@ pub fn summon_monster(hand: &mut Vec<Card>, monster_field: &mut Vec<Option<Card>
     }
 }
 
+
 pub fn kill_monster(field: &mut Vec<Option<Card>>, slot_index: usize) -> Option<Card> {
     if let Some(slot) = field.get_mut(slot_index) {
         slot.take()
@@ -150,3 +153,40 @@ pub fn kill_monster(field: &mut Vec<Option<Card>>, slot_index: usize) -> Option<
         None
     }
 }
+
+
+
+pub fn battle_phase(player_hp: &mut i32, bot_hp: &mut i32, monster_field: &mut Vec<Option<Card>>) {
+    println!("Your Field:");
+    print_field(monster_field, &vec![]); // Ainda não estamos considerando as cartas de magia
+
+    println!("Select a monster to attack (1 to 5) or 0 to cancel:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Error: couldn't get the input");
+
+    let choice = input.trim().parse::<usize>();
+
+    match choice {
+        Ok(index) if index > 0 && index <= monster_field.len() => {
+            if let Some(attacking_monster) = &monster_field[index - 1] {
+                if let CardType::Monster(atk) = &attacking_monster.card_type {
+                    if let Some(damage) = *atk {
+                        *bot_hp -= damage as i32;
+
+                        println!("Your monster attacked successfully! Dealt {} damage to the opponent.", damage);
+                    } else {
+                        println!("The selected monster has no attack value.");
+                    }
+                } else {
+                    println!("The selected card is not a monster.");
+                }
+            } else {
+                println!("There's no monster in that position.");
+            }
+        }
+        Ok(0) => println!("Attack canceled."),
+        _ => println!("Invalid option."),
+    }
+}
+
+// ...
